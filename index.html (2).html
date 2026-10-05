@@ -1,0 +1,1892 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0d4f6c">
+    <meta name="description" content="E-LKPD Digital Interaktif Kinematika GLB & GLBB - Fase F Kelas XI">
+    <title>E-LKPD Kinematika GLB & GLBB | Fisika Fase F</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --primary: #0d4f6c;
+            --primary-light: #1a7fa8;
+            --primary-lighter: #e8f4fa;
+            --accent: #f39c12;
+            --accent-dark: #d68910;
+            --success: #16a34a;
+            --success-light: #dcfce7;
+            --danger: #dc2626;
+            --danger-light: #fee2e2;
+            --warning: #f59e0b;
+            --info: #0ea5e9;
+            --glb-color: #0ea5e9;
+            --glbb-color: #f59e0b;
+            --text: #0f172a;
+            --text-soft: #475569;
+            --text-muted: #94a3b8;
+            --bg: #f1f5f9;
+            --bg-card: #ffffff;
+            --border: #e2e8f0;
+            --border-strong: #cbd5e1;
+            --radius: 14px;
+            --radius-sm: 10px;
+            --radius-lg: 20px;
+            --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+            --shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+            --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.12);
+            --shadow-xl: 0 24px 48px rgba(15, 23, 42, 0.16);
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(180deg, #e0f2fe 0%, #f1f5f9 40%, #f8fafc 100%);
+            background-attachment: fixed;
+            color: var(--text);
+            line-height: 1.65;
+            font-size: 15px;
+            min-height: 100vh;
+            padding-bottom: 100px;
+        }
+
+        .app-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(13, 79, 108, 0.96);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: #fff;
+            padding: 12px 16px;
+            box-shadow: 0 4px 20px rgba(13, 79, 108, 0.25);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .app-header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .app-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: -0.3px;
+        }
+
+        .app-logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--accent), #fbbf24);
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(243, 156, 18, 0.4);
+        }
+
+        .app-progress-wrap {
+            flex: 1;
+            max-width: 340px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .app-progress-bar {
+            flex: 1;
+            height: 8px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .app-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #fbbf24, #f59e0b);
+            border-radius: 99px;
+            transition: width 0.4s ease;
+            box-shadow: 0 0 8px rgba(251, 191, 36, 0.6);
+        }
+
+        .app-progress-text {
+            min-width: 38px;
+            text-align: right;
+            color: #fef3c7;
+        }
+
+        .btn-ganti-kelompok {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            border-radius: 99px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+            backdrop-filter: blur(6px);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btn-ganti-kelompok:hover {
+            background: rgba(255, 255, 255, 0.28);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        @media (max-width: 520px) {
+            .btn-ganti-kelompok span { display: none; }
+            .btn-ganti-kelompok { padding: 8px 10px; }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 16px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0d4f6c 0%, #1a7fa8 60%, #0ea5e9 100%);
+            color: #fff;
+            border-radius: var(--radius-lg);
+            padding: 36px 28px;
+            margin-bottom: 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -20%;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -60%; left: -10%;
+            width: 320px; height: 320px;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.25);
+            padding: 5px 14px;
+            border-radius: 99px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+            backdrop-filter: blur(6px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(1.35rem, 3.5vw, 2rem);
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h2 {
+            font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+            font-weight: 500;
+            opacity: 0.92;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-chip {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 6px 14px;
+            border-radius: 99px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            backdrop-filter: blur(6px);
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 22px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            animation: cardFadeIn 0.5s ease backwards;
+        }
+
+        @keyframes cardFadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card:hover { box-shadow: var(--shadow-lg); }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 14px;
+            border-bottom: 2px solid var(--primary-lighter);
+        }
+
+        .card-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            font-size: 20px;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, var(--primary-lighter), #dbeafe);
+            color: var(--primary);
+        }
+
+        .card-icon.accent { background: linear-gradient(135deg, #fef3c7, #fde68a); color: var(--accent-dark); }
+        .card-icon.success { background: linear-gradient(135deg, #dcfce7, #bbf7d0); color: var(--success); }
+        .card-icon.danger { background: linear-gradient(135deg, #fee2e2, #fecaca); color: var(--danger); }
+
+        .card-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.3;
+        }
+
+        .card-subtitle {
+            font-size: 0.78rem;
+            color: var(--text-soft);
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        .card-body p { margin-bottom: 10px; font-size: 0.92rem; color: var(--text-soft); }
+        .card-body strong { color: var(--text); font-weight: 700; }
+        .card-body ol, .card-body ul { padding-left: 22px; margin: 10px 0; }
+        .card-body li { margin-bottom: 6px; font-size: 0.9rem; color: var(--text-soft); }
+
+        .group-overlay {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(13, 79, 108, 0.98), rgba(14, 165, 233, 0.95));
+            z-index: 999;
+            display: grid;
+            place-items: center;
+            padding: 20px;
+            backdrop-filter: blur(8px);
+            animation: fadeIn 0.4s ease;
+        }
+
+        .group-overlay.hidden { display: none; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .group-modal {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            padding: 40px 28px;
+            max-width: 520px;
+            width: 100%;
+            text-align: center;
+            box-shadow: var(--shadow-xl);
+            animation: slideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .group-modal-emoji {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .group-modal h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
+            letter-spacing: -0.4px;
+        }
+
+        .group-modal p {
+            color: var(--text-soft);
+            font-size: 0.92rem;
+            margin-bottom: 26px;
+        }
+
+        .group-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .group-btn {
+            padding: 24px 16px;
+            border: 2px solid transparent;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #fff;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .group-btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+        .group-btn:active { transform: translateY(0); }
+
+        .group-btn-genap { background: linear-gradient(135deg, #0ea5e9, #0284c7); }
+        .group-btn-ganjil { background: linear-gradient(135deg, #f59e0b, #d97706); }
+
+        .group-btn-emoji { font-size: 1.8rem; }
+        .group-btn-label { font-size: 0.95rem; }
+        .group-btn-desc { font-size: 0.72rem; font-weight: 500; opacity: 0.9; }
+
+        @media (max-width: 520px) {
+            .group-options { grid-template-columns: 1fr; }
+            .group-modal { padding: 28px 20px; }
+        }
+
+        .id-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+        }
+
+        .field { display: flex; flex-direction: column; gap: 5px; }
+        .field.full { grid-column: 1 / -1; }
+
+        .field label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .field input, .field select, .field textarea {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1.5px solid var(--border-strong);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 0.92rem;
+            color: var(--text);
+            background: #fff;
+            transition: var(--transition);
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .field textarea { resize: vertical; min-height: 90px; line-height: 1.55; }
+
+        .field input:focus, .field select:focus, .field textarea:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 4px rgba(26, 127, 168, 0.12);
+        }
+
+        .field input[readonly] { background: #f8fafc; color: var(--text-soft); cursor: not-allowed; }
+
+        .anggota-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+        @media (max-width: 520px) { .anggota-list { grid-template-columns: 1fr; } }
+
+        .info-diisi {
+            background: linear-gradient(135deg, #fff7ed, #ffedd5);
+            border: 1.5px solid #fdba74;
+            border-radius: var(--radius-sm);
+            padding: 10px 14px;
+            margin: 10px 0 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .info-diisi label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #9a3412;
+            white-space: nowrap;
+        }
+
+        .info-diisi input {
+            flex: 1;
+            min-width: 140px;
+            padding: 8px 12px;
+            border: 1.5px solid #fdba74;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.88rem;
+            background: #fff;
+            transition: var(--transition);
+        }
+
+        .info-diisi input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.15);
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            margin: 14px 0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            min-width: 560px;
+        }
+
+        thead th {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #fff;
+            padding: 12px 10px;
+            font-weight: 700;
+            text-align: center;
+            font-size: 0.78rem;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+
+        tbody td {
+            padding: 8px 6px;
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+            background: #fff;
+        }
+
+        tbody tr:last-child td { border-bottom: none; }
+        tbody tr:hover td { background: var(--primary-lighter); }
+
+        tbody td input, tbody td select {
+            width: 100%;
+            min-width: 70px;
+            padding: 8px 6px;
+            border: 1.5px solid var(--border-strong);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            text-align: center;
+            transition: var(--transition);
+            background: #fff;
+        }
+
+        tbody td input:focus, tbody td select:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(26, 127, 168, 0.12);
+        }
+
+        tbody td select.select-komp {
+            min-width: 150px;
+            padding: 8px 32px 8px 10px;
+            text-align: left;
+            font-size: 0.82rem;
+            cursor: pointer;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 11px 20px;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            white-space: nowrap;
+            -webkit-tap-highlight-color: transparent;
+            min-height: 42px;
+        }
+
+        .btn:active { transform: scale(0.97); }
+
+        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #fff; box-shadow: 0 4px 12px rgba(13, 79, 108, 0.25); }
+        .btn-primary:hover { box-shadow: 0 6px 18px rgba(13, 79, 108, 0.35); transform: translateY(-1px); }
+
+        .btn-accent { background: linear-gradient(135deg, var(--accent), #fbbf24); color: #fff; box-shadow: 0 4px 12px rgba(243, 156, 18, 0.25); }
+        .btn-accent:hover { box-shadow: 0 6px 18px rgba(243, 156, 18, 0.35); transform: translateY(-1px); }
+
+        .btn-success { background: linear-gradient(135deg, var(--success), #22c55e); color: #fff; box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25); }
+        .btn-success:hover { box-shadow: 0 6px 18px rgba(22, 163, 74, 0.35); transform: translateY(-1px); }
+
+        .btn-danger { background: linear-gradient(135deg, var(--danger), #ef4444); color: #fff; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25); }
+        .btn-danger:hover { box-shadow: 0 6px 18px rgba(220, 38, 38, 0.35); transform: translateY(-1px); }
+
+        .btn-wa { background: linear-gradient(135deg, #25D366, #128C7E); color: #fff; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); }
+        .btn-wa:hover { box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4); transform: translateY(-1px); }
+
+        .btn-email { background: linear-gradient(135deg, #EA4335, #c5221f); color: #fff; box-shadow: 0 4px 12px rgba(234, 67, 53, 0.3); }
+        .btn-email:hover { box-shadow: 0 6px 18px rgba(234, 67, 53, 0.4); transform: translateY(-1px); }
+
+        .btn-outline { background: #fff; color: var(--primary); border: 1.5px solid var(--border-strong); }
+        .btn-outline:hover { border-color: var(--primary-light); background: var(--primary-lighter); }
+
+        .btn-sm { padding: 8px 14px; font-size: 0.8rem; min-height: 36px; }
+
+        .btn-group { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+
+        .jawaban-box {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border: 1.5px dashed var(--border-strong);
+            border-radius: var(--radius);
+            padding: 12px 14px;
+            margin: 8px 0;
+            transition: var(--transition);
+        }
+
+        .jawaban-box:focus-within {
+            border-style: solid;
+            border-color: var(--primary-light);
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(26, 127, 168, 0.08);
+        }
+
+        .jawaban-box textarea {
+            width: 100%;
+            border: none;
+            background: transparent;
+            font-family: inherit;
+            font-size: 0.92rem;
+            color: var(--text);
+            resize: vertical;
+            min-height: 80px;
+            outline: none;
+            line-height: 1.6;
+        }
+
+        .jawaban-box textarea::placeholder { color: var(--text-muted); }
+
+        .pertanyaan {
+            margin: 16px 0;
+            padding: 14px 16px;
+            background: #fff;
+            border-left: 4px solid var(--accent);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .pertanyaan-label {
+            font-weight: 700;
+            color: var(--text);
+            font-size: 0.92rem;
+            margin-bottom: 8px;
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+        }
+
+        .pertanyaan-num {
+            display: inline-grid;
+            place-items: center;
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            font-weight: 800;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .subtitle {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.95rem;
+            margin: 18px 0 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .subtitle::before {
+            content: '';
+            width: 4px;
+            height: 18px;
+            background: linear-gradient(180deg, var(--accent), var(--accent-dark));
+            border-radius: 2px;
+        }
+
+        .sim-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+            border: 1.5px solid var(--primary-light);
+            padding: 12px 18px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.88rem;
+            transition: var(--transition);
+            margin: 8px 0;
+        }
+
+        .sim-link:hover {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .upload-area {
+            border: 2px dashed var(--primary-light);
+            border-radius: var(--radius);
+            padding: 26px 18px;
+            text-align: center;
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            margin: 14px 0;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .upload-area:hover, .upload-area.dragover {
+            border-color: var(--accent);
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            transform: scale(1.01);
+        }
+
+        .upload-area input[type="file"] { display: none; }
+
+        .upload-icon { font-size: 2.4rem; margin-bottom: 8px; display: block; }
+        .upload-title { font-weight: 700; color: var(--primary); font-size: 1rem; margin-bottom: 4px; }
+        .upload-hint { font-size: 0.78rem; color: var(--text-soft); }
+
+        .upload-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #fff;
+            padding: 12px 22px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.88rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(13, 79, 108, 0.25);
+            margin-top: 12px;
+        }
+
+        .upload-label:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(13, 79, 108, 0.35); }
+
+        .preview-container {
+            margin-top: 16px;
+            display: none;
+            animation: fadeIn 0.4s;
+        }
+
+        .preview-container img {
+            max-width: 100%;
+            max-height: 420px;
+            border-radius: var(--radius);
+            border: 3px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .preview-actions {
+            margin-top: 10px;
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-left: 4px solid var(--warning);
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            color: #78350f;
+            margin: 12px 0;
+            font-weight: 500;
+        }
+
+        .info-box.blue {
+            background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+            border-left-color: var(--info);
+            color: #0c4a6e;
+        }
+
+        .autosave-pill {
+            position: fixed;
+            bottom: 84px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--success), #22c55e);
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            box-shadow: 0 8px 24px rgba(22, 163, 74, 0.4);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+            z-index: 900;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            pointer-events: none;
+        }
+
+        .autosave-pill.show { opacity: 1; transform: translateY(0); }
+
+        .send-box {
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border: 2px solid var(--success);
+            border-radius: var(--radius-lg);
+            padding: 22px;
+            margin-top: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .send-box-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #065f46;
+            margin-bottom: 6px;
+        }
+
+        .send-box p { color: #047857; font-size: 0.88rem; margin-bottom: 14px; }
+
+        .action-bar {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid var(--border);
+            padding: 10px 16px;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            z-index: 90;
+            box-shadow: 0 -4px 20px rgba(15, 23, 42, 0.06);
+            overflow-x: auto;
+        }
+
+        .action-bar .btn { flex-shrink: 0; }
+
+        @media (max-width: 520px) {
+            .action-bar .btn span.btn-label { display: none; }
+            .action-bar .btn { padding: 12px; min-width: 46px; }
+        }
+
+        .hidden { display: none !important; }
+
+        .card-glb { border-top: 4px solid var(--glb-color); }
+        .card-glbb { border-top: 4px solid var(--glbb-color); }
+
+        .card-glb .card-icon { background: linear-gradient(135deg, #e0f2fe, #bae6fd); color: #0369a1; }
+        .card-glbb .card-icon { background: linear-gradient(135deg, #fef3c7, #fde68a); color: #b45309; }
+
+        @media print {
+            body { background: #fff; padding-bottom: 0; }
+            .app-header, .action-bar, .autosave-pill, .group-overlay, .btn, .send-box, .sim-link, .btn-ganti-kelompok { display: none !important; }
+            .card { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+            .hero { background: #0d4f6c !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .table-wrap { overflow: visible; }
+            table { min-width: 0; font-size: 0.75rem; }
+        }
+
+        ::-webkit-scrollbar { width: 10px; height: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary-light); }
+
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            padding-right: 32px !important;
+        }
+    </style>
+</head>
+<body>
+
+<div class="group-overlay" id="groupOverlay">
+    <div class="group-modal">
+        <span class="group-modal-emoji">🔬</span>
+        <h2>Selamat Datang di E-LKPD Kinematika</h2>
+        <p>Sebelum memulai, pilih <strong>jenis kelompokmu</strong> terlebih dahulu. Bagian eksplorasi akan menyesuaikan pilihanmu.</p>
+        <div class="group-options">
+            <button class="group-btn group-btn-genap" onclick="pilihKelompok('genap')">
+                <span class="group-btn-emoji">🟦</span>
+                <span class="group-btn-label">KELOMPOK GENAP</span>
+                <span class="group-btn-desc">Menyelidiki GLB</span>
+            </button>
+            <button class="group-btn group-btn-ganjil" onclick="pilihKelompok('ganjil')">
+                <span class="group-btn-emoji">🟧</span>
+                <span class="group-btn-label">KELOMPOK GANJIL</span>
+                <span class="group-btn-desc">Menyelidiki GLBB</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<header class="app-header">
+    <div class="app-header-inner">
+        <div class="app-logo">
+            <div class="app-logo-icon">⚛️</div>
+            <span>E-LKPD Kinematika</span>
+        </div>
+        <div class="app-progress-wrap">
+            <div class="app-progress-bar">
+                <div class="app-progress-fill" id="progressFill"></div>
+            </div>
+            <span class="app-progress-text" id="progressText">0%</span>
+        </div>
+        <button class="btn-ganti-kelompok" onclick="konfirmasiGantiKelompok()" title="Ganti jenis kelompok">
+            🔄 <span>Ganti</span>
+        </button>
+    </div>
+</header>
+
+<div class="container">
+
+    <div class="hero">
+        <span class="hero-badge">FASE F • KELAS XI • SEMESTER 1</span>
+        <h1>Lembar Kerja Peserta Didik Digital Interaktif</h1>
+        <h2>Kinematika: Gerak Lurus Beraturan (GLB) & Gerak Lurus Berubah Beraturan (GLBB)</h2>
+        <div class="hero-meta">
+            <span class="hero-chip">⚛️ Fisika</span>
+            <span class="hero-chip">📚 Learning Cycle 7E</span>
+            <span class="hero-chip">💻 Simulasi PhET</span>
+        </div>
+    </div>
+
+    <!-- IDENTITAS -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-icon">👥</div>
+            <div>
+                <div class="card-title">Identitas Kelompok</div>
+                <div class="card-subtitle">Isi data kelompokmu dengan lengkap</div>
+            </div>
+        </div>
+        <div class="id-grid">
+            <div class="field">
+                <label for="namaKelompok">Nama Kelompok</label>
+                <input type="text" id="namaKelompok" placeholder="Contoh: Kelompok 1">
+            </div>
+            <div class="field">
+                <label for="kelasSemester">Kelas / Semester</label>
+                <input type="text" id="kelasSemester" value="XI / Ganjil" readonly>
+            </div>
+            <div class="field">
+                <label for="jenisKelompokDisplay">Jenis Kelompok</label>
+                <input type="text" id="jenisKelompokDisplay" readonly placeholder="Pilih di awal...">
+            </div>
+            <div class="field">
+                <label for="hariTanggal">Hari / Tanggal</label>
+                <input type="date" id="hariTanggal">
+            </div>
+            <div class="field full">
+                <label>Anggota Kelompok</label>
+                <div class="anggota-list">
+                    <input type="text" id="anggota1" placeholder="1. Nama anggota">
+                    <input type="text" id="anggota2" placeholder="2. Nama anggota">
+                    <input type="text" id="anggota3" placeholder="3. Nama anggota">
+                    <input type="text" id="anggota4" placeholder="4. Nama anggota">
+                    <input type="text" id="anggota5" placeholder="5. Nama anggota">
+                    <input type="text" id="anggota6" placeholder="6. Nama anggota">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PETUNJUK -->
+    <div class="card" style="background: linear-gradient(135deg, #fef9e7, #fef3c7); border-color: #fde68a;">
+        <div class="card-header" style="border-bottom-color: #fcd34d;">
+            <div class="card-icon accent">📋</div>
+            <div>
+                <div class="card-title" style="color:#92400e;">Petunjuk Pembagian Tugas</div>
+                <div class="card-subtitle" style="color:#a16207;">Baca sebelum mengerjakan</div>
+            </div>
+        </div>
+        <ul style="padding-left: 22px; font-size:0.9rem; color:#78350f;">
+            <li><strong>Sintaks 2 (Engage):</strong> Dikerjakan oleh <strong>seluruh kelompok</strong> (Ganjil & Genap) bersama-sama.</li>
+            <li><strong>Sintaks 3 (Explore):</strong>
+                <ul>
+                    <li>Kelompok <strong>GENAP</strong>: Eksplorasi 1 (GLB — Bagian F).</li>
+                    <li>Kelompok <strong>GANJIL</strong>: Eksplorasi 2 (GLBB — Bagian G).</li>
+                </ul>
+            </li>
+            <li><strong>Sintaks 4 (Explain/Sintesis):</strong> Diskusi silang antar-kelompok untuk melengkapi komparasi.</li>
+            <li>💡 <strong>Tips:</strong> Untuk mengisi tabel perhitungan (Δx, v, a), gunakan kalkulator manual. Isi field <em>"Diisi oleh"</em> di atas tabel agar jelas anggota yang bertanggung jawab.</li>
+        </ul>
+    </div>
+
+    <!-- TUJUAN (DIPERBARUI) -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-icon success">🎯</div>
+            <div>
+                <div class="card-title">A. Tujuan Kegiatan</div>
+                <div class="card-subtitle">Setelah pembelajaran, peserta didik mampu:</div>
+            </div>
+        </div>
+        <ol style="padding-left: 22px; font-size:0.9rem; color:var(--text-soft);">
+            <li>Menganalisis hubungan antara posisi, waktu, kecepatan, dan percepatan pada gerak lurus melalui pengamatan fenomena gerak dan diskusi kelompok berdasarkan data hasil pengamatan secara tepat dan kritis.</li>
+            <li>Menganalisis karakteristik Gerak Lurus Beraturan (GLB) dan Gerak Lurus Berubah Beraturan (GLBB) melalui pengoperasian dan eksplorasi simulasi digital dengan memvariasikan waktu, kecepatan, dan percepatan serta mengumpulkan dan mencatat data hasil pengamatan secara sistematis dan benar.</li>
+            <li>Mengevaluasi kesesuaian karakteristik GLB dan GLBB berdasarkan hasil pengolahan dan penyajian data dalam bentuk tabel dan grafik posisi-waktu, kecepatan-waktu, dan percepatan-waktu dengan memberikan argumentasi yang logis dan sesuai dengan data hasil penyelidikan.</li>
+            <li>Mengomunikasikan hasil analisis karakteristik GLB dan GLBB melalui penyusunan dan presentasi hasil penyelidikan dalam bentuk tabel, grafik, dan penjelasan ilmiah secara sistematis, komunikatif berdasarkan data hasil penyelidikan serta mampu menanggapi pendapat yang relevan.</li>
+        </ol>
+    </div>
+
+    <!-- ALAT & BAHAN -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-icon">🧰</div>
+            <div>
+                <div class="card-title">B. Alat dan Bahan</div>
+                <div class="card-subtitle">Yang perlu disiapkan</div>
+            </div>
+        </div>
+        <ul style="padding-left: 22px; font-size:0.9rem; color:var(--text-soft);">
+            <li>Laptop / Ponsel / Tablet dengan koneksi internet (minimal 1 perangkat per kelompok).</li>
+            <li>Simulasi PhET "Moving Man": <a href="https://phet.colorado.edu/sims/cheerpj/moving-man/latest/moving-man.html?simulation=moving-man" target="_blank" rel="noopener" class="sim-link">🔗 Buka Simulasi PhET</a></li>
+            <li>LKPD Digital Interaktif, kalkulator, dan alat tulis.</li>
+        </ul>
+    </div>
+
+    <!-- ENGAGE -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-icon accent">💡</div>
+            <div>
+                <div class="card-title">C. Sintaks 2: ENGAGE</div>
+                <div class="card-subtitle">Orientasi Masalah & Hipotesis — Wajib diisi seluruh kelompok</div>
+            </div>
+        </div>
+        <p>Amatilah tayangan video fenomena kontekstual yang ditampilkan guru (eskalator yang bergerak stabil dan sepeda yang direm hingga berhenti). Diskusikan bersama kelompokmu:</p>
+
+        <div class="subtitle">Pertanyaan Pemantik</div>
+        <div class="pertanyaan">
+            <div class="pertanyaan-label">
+                <span class="pertanyaan-num">1</span>
+                <span>Mengapa eskalator terasa mulus dan stabil, sedangkan sepeda yang direm membuat tubuh terdorong ke depan?</span>
+            </div>
+            <div class="jawaban-box">
+                <textarea id="jawabanPemantik1" placeholder="Tulis jawaban kelompok di sini..." rows="3"></textarea>
+            </div>
+        </div>
+        <div class="pertanyaan">
+            <div class="pertanyaan-label">
+                <span class="pertanyaan-num">2</span>
+                <span>Bagaimana cara kita mengetahui hubungan antara posisi, waktu, kecepatan, dan percepatan dari kedua jenis gerak tersebut?</span>
+            </div>
+            <div class="jawaban-box">
+                <textarea id="jawabanPemantik2" placeholder="Tulis jawaban kelompok di sini..." rows="3"></textarea>
+            </div>
+        </div>
+
+        <div class="subtitle">Rumusan Hipotesis Awal</div>
+        <p style="font-size:0.85rem; margin-bottom:8px;">Isilah tabel dugaan sementara berikut dengan kata/frasa singkat: <em>tetap, makin besar, makin kecil, nol, tidak nol</em>.</p>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Jenis Gerak</th>
+                        <th>Δx tiap detik</th>
+                        <th>Kecepatan (v)</th>
+                        <th>Percepatan (a)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Eskalator (Stabil)</strong></td>
+                        <td><select id="hipotesisEskalatorDx"><option value="">-- Pilih --</option><option>tetap</option><option>makin besar</option><option>makin kecil</option><option>nol</option><option>tidak nol</option></select></td>
+                        <td><select id="hipotesisEskalatorV"><option value="">-- Pilih --</option><option>tetap</option><option>makin besar</option><option>makin kecil</option><option>nol</option><option>tidak nol</option></select></td>
+                        <td><select id="hipotesisEskalatorA"><option value="">-- Pilih --</option><option>tetap</option><option>makin besar</option><option>makin kecil</option><option>nol</option><option>tidak nol</option></select></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sepeda Direm</strong></td>
+                        <td><select id="hipotesisSepedaDx"><option value="">-- Pilih --</option><option>tetap</option><option>makin besar</option><option>makin kecil</option><option>nol</option><option>tidak nol</option></select></td>
+                        <td><select id="hipotesisSepedaV"><option value="">-- Pilih --</option><option>tetap</option><option>makin besar</option><option>makin kecil</option><option>nol</option><option>tidak nol</option></select></td>
+                        <td><select id="hipotesisSepedaA"><option value="">-- Pilih --</option><option>tetap</option><option>makin besar</option><option>makin kecil</option><option>nol</option><option>tidak nol</option></select></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="info-box">
+            <strong>Rumusan Masalah Utama:</strong><br>
+            "Bagaimana karakteristik gerak dengan kecepatan tetap (GLB) dan gerak dengan kecepatan yang berubah secara teratur (GLBB) jika ditinjau dari data posisi, waktu, kecepatan, dan percepatan?"
+        </div>
+    </div>
+
+    <!-- PANDUAN PHET -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-icon">🧭</div>
+            <div>
+                <div class="card-title">D. Panduan Penggunaan Simulasi PhET</div>
+                <div class="card-subtitle">Ikuti langkah-langkah berikut</div>
+            </div>
+        </div>
+        <ol style="padding-left: 22px; font-size:0.9rem; color:var(--text-soft);">
+            <li>Buka simulasi PhET "Moving Man" pada tautan yang tersedia. <a href="https://phet.colorado.edu/sims/cheerpj/moving-man/latest/moving-man.html?simulation=moving-man" target="_blank" rel="noopener" class="sim-link" style="padding:8px 14px; font-size:0.8rem;">🔗 Buka Simulasi</a></li>
+            <li>Gunakan tab <strong>Intro</strong> untuk mengatur posisi awal (x), kecepatan (v), dan percepatan (a).</li>
+            <li>Gunakan tab <strong>Charts</strong> untuk mengamati grafik posisi-waktu (x-t), kecepatan-waktu (v-t), dan percepatan-waktu (a-t).</li>
+            <li>Gunakan tombol <strong>Play, Pause,</strong> dan <strong>Step</strong> untuk mencatat data secara presisi.</li>
+        </ol>
+    </div>
+
+    <!-- ============ GLB ============ -->
+    <div class="card card-glb hidden" id="sectionGLB">
+        <div class="card-header">
+            <div class="card-icon">🟦</div>
+            <div>
+                <div class="card-title">F. EKSPLORASI 1: Menyelidiki GLB</div>
+                <div class="card-subtitle">Khusus Kelompok Genap</div>
+            </div>
+        </div>
+
+        <div class="subtitle">F1. Langkah Kegiatan & Tabel Data GLB</div>
+        <ol style="padding-left: 22px; font-size:0.9rem; color:var(--text-soft);">
+            <li>Reset simulasi. Pada tab Intro, atur posisi awal $x_0 = -8$ m, kecepatan $v = 2$ m/s, dan percepatan $a = 0$ m/s².</li>
+            <li>Jalankan simulasi dan Pause pada $t = 1, 2, 3, 4, 5$ s. Catat posisi terukur pada Tabel 1.</li>
+            <li>Hitung manual nilai $\Delta x$, $\Delta t$, dan $v = \frac{\Delta x}{\Delta t}$ menggunakan kalkulator.</li>
+            <li>Lakukan variasi kecepatan pada Tabel 2 dengan $x_0 = -8$ m, $a = 0$ m/s² pada $t = 3$ s.</li>
+        </ol>
+
+        <div class="subtitle">Tabel 1. Data Pengamatan GLB ($x_0 = -8$ m, $a = 0$ m/s²)</div>
+        <div class="info-diisi">
+            <label>✍️ Diisi oleh:</label>
+            <input type="text" id="diisiGLB1" placeholder="Nama anggota yang input tabel ini">
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th><th>t (s)</th><th>v diatur (m/s)</th><th>x terukur (m)</th>
+                        <th>Δx (m)</th><th>Δt (s)</th><th>v = Δx/Δt (m/s)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>0</td><td>2</td><td>-8</td><td>-</td><td>-</td><td>-</td></tr>
+                    <tr><td>2</td><td>1</td><td>2</td><td><input type="number" id="glb1_x1" step="0.01" inputmode="decimal"></td><td><input type="number" id="glb1_dx1" step="0.01" inputmode="decimal"></td><td><input type="number" id="glb1_dt1" value="1"></td><td><input type="number" id="glb1_v1" step="0.01" inputmode="decimal"></td></tr>
+                    <tr><td>3</td><td>2</td><td>2</td><td><input type="number" id="glb1_x2" step="0.01" inputmode="decimal"></td><td><input type="number" id="glb1_dx2" step="0.01" inputmode="decimal"></td><td><input type="number" id="glb1_dt2" value="1"></td><td><input type="number" id="glb1_v2" step="0.01" inputmode="decimal"></td></tr>
+                    <tr><td>4</td><td>3</td><td>2</td><td><input type="number" id="glb1_x3" step="0.01" inputmode="decimal"></td><td><input type="number" id="glb1_dx3" step="0.01" inputmode="decimal"></td><td><input type="number" id="glb1_dt3" value="1"></td><td><input type="number" id="glb1_v3" step="0.01" inputmode="decimal"></td></tr>
+                    <tr><td>5</td><td>4</td><td>2</td><td><input type="number" id="glb1_x4" step="0.01" inputmode="decimal"></td><td><input type="number" id="glb1_dx4" step="0.01" inputmode="decimal"></td><td><input type="number" id="glb1_dt4" value="1"></td><td><input type="number" id="glb1_v4" step="0.01" inputmode="decimal"></td></tr>
+                    <tr><td>6</td><td>5</td><td>2</td><td><input type="number" id="glb1_x5" step="0.01" inputmode="decimal"></td><td><input type="number" id="glb1_dx5" step="0.01" inputmode="decimal"></td><td><input type="number" id="glb1_dt5" value="1"></td><td><input type="number" id="glb1_v5" step="0.01" inputmode="decimal"></td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-outline btn-sm" onclick="resetGLB1()">🔄 Reset Tabel 1</button>
+        </div>
+
+        <div class="subtitle">Tabel 2. Variasi Kecepatan GLB ($x_0 = -8$ m, $a = 0$ m/s², $t = 3$ s)</div>
+        <div class="info-diisi">
+            <label>✍️ Diisi oleh:</label>
+            <input type="text" id="diisiGLB2" placeholder="Nama anggota yang input tabel ini">
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Percobaan</th><th>v diatur (m/s)</th><th>x awal (m)</th><th>x saat t=3s (m)</th><th>Δx = x - x₀ (m)</th><th>v = Δx/Δt (m/s)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td><input type="number" id="glb2_v1" value="1" step="0.1" inputmode="decimal"></td><td>-8</td><td><input type="number" id="glb2_x1" step="0.01" inputmode="decimal"></td><td><input type="number" id="glb2_dx1" step="0.01" inputmode="decimal"></td><td><input type="number" id="glb2_vhit1" step="0.01" inputmode="decimal"></td></tr>
+                    <tr><td>2</td><td><input type="number" id="glb2_v2" value="2" step="0.1" inputmode="decimal"></td><td>-8</td><td><input type="number" id="glb2_x2" step="0.01" inputmode="decimal"></td><td><input type="number" id="glb2_dx2" step="0.01" inputmode="decimal"></td><td><input type="number" id="glb2_vhit2" step="0.01" inputmode="decimal"></td></tr>
+                    <tr><td>3</td><td><input type="number" id="glb2_v3" value="3" step="0.1" inputmode="decimal"></td><td>-8</td><td><input type="number" id="glb2_x3" step="0.01" inputmode="decimal"></td><td><input type="number" id="glb2_dx3" step="0.01" inputmode="decimal"></td><td><input type="number" id="glb2_vhit3" step="0.01" inputmode="decimal"></td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-outline btn-sm" onclick="resetGLB2()">🔄 Reset Tabel 2</button>
+        </div>
+
+        <div class="subtitle">F2. Analisis Data GLB</div>
+        <div class="pertanyaan">
+            <div class="pertanyaan-label"><span class="pertanyaan-num">1</span><span>Pada Tabel 1, apa yang terjadi pada posisi benda ketika waktu bertambah? Berapa pertambahan posisi setiap 1 sekon?</span></div>
+            <div class="jawaban-box"><textarea id="analisisGLB1" placeholder="Tulis jawaban di sini..." rows="3"></textarea></div>
+        </div>
+        <div class="pertanyaan">
+            <div class="pertanyaan-label"><span class="pertanyaan-num">2</span><span>Bandingkan nilai v = Δx/Δt pada setiap selang waktu. Apakah nilainya sama atau berubah? Bagaimana hubungannya dengan nilai v yang diatur?</span></div>
+            <div class="jawaban-box"><textarea id="analisisGLB2" placeholder="Tulis jawaban di sini..." rows="3"></textarea></div>
+        </div>
+        <div class="pertanyaan">
+            <div class="pertanyaan-label"><span class="pertanyaan-num">3</span><span>Berapa nilai percepatan (a) benda pada percobaan GLB ini? Jelaskan hubungannya dengan kecepatan yang konstan.</span></div>
+            <div class="jawaban-box"><textarea id="analisisGLB3" placeholder="Tulis jawaban di sini..." rows="3"></textarea></div>
+        </div>
+
+        <div class="subtitle">📈 Grafik GLB (Gambar Manual, Upload Foto)</div>
+        <div class="info-box blue">
+            <strong>Instruksi:</strong> Gambarlah grafik <strong>posisi-waktu (x-t)</strong> dan <strong>kecepatan-waktu (v-t)</strong> dari data Tabel 1 pada kertas berpetak. Setelah selesai, foto dan upload hasilnya di bawah ini.
+        </div>
+        <div class="upload-area" id="uploadAreaGLB" onclick="document.getElementById('uploadGLB').click()">
+            <span class="upload-icon">📷</span>
+            <div class="upload-title">Upload Foto Grafik GLB</div>
+            <div class="upload-hint">Klik di sini untuk memilih foto, atau seret & lepas foto ke area ini</div>
+            <label for="uploadGLB" class="upload-label" onclick="event.stopPropagation()">📁 Pilih Foto dari Galeri</label>
+            <input type="file" id="uploadGLB" accept="image/*" onchange="previewImage(this, 'previewGLB', 'fotoGLB')">
+        </div>
+        <div class="preview-container" id="previewGLB">
+            <img id="imgPreviewGLB" src="" alt="Preview Grafik GLB">
+            <div class="preview-actions">
+                <button class="btn btn-danger btn-sm" onclick="hapusFoto('previewGLB', 'uploadGLB', 'fotoGLB')">🗑️ Hapus Foto</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ GLBB ============ -->
+    <div class="card card-glbb hidden" id="sectionGLBB">
+        <div class="card-header">
+            <div class="card-icon">🟧</div>
+            <div>
+                <div class="card-title">G. EKSPLORASI 2: Menyelidiki GLBB</div>
+                <div class="card-subtitle">Khusus Kelompok Ganjil</div>
+            </div>
+        </div>
+
+        <div class="subtitle">G1. Langkah Kegiatan & Tabel Data GLBB</div>
+        <p style="font-size:0.9rem; color:var(--text-soft);"><strong>A. Gerak Dipercepat:</strong> Atur $x_0 = -8$ m, $v_0 = 0$ m/s, dan $a = 1$ m/s². Catat pada Tabel 3, lalu hitung manual $a = \frac{\Delta v}{\Delta t}$.</p>
+
+        <div class="subtitle">Tabel 3. Data GLBB Dipercepat ($x_0 = -8$ m, $v_0 = 0$, $a = 1$ m/s²)</div>
+        <div class="info-diisi">
+            <label>✍️ Diisi oleh:</label>
+            <input type="text" id="diisiGLBB3" placeholder="Nama anggota yang input tabel ini">
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>t (s)</th><th>a diatur (m/s²)</th><th>v terukur (m/s)</th><th>Δv (m/s)</th><th>a = Δv/Δt (m/s²)</th><th>x terukur (m)</th><th>Δx (m)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>0</td><td>1</td><td>0</td><td>-</td><td>-</td><td>-8</td><td>-</td></tr>
+                    <tr><td>1</td><td>1</td><td><input type="number" id="glbb3_v1" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb3_dv1" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb3_a1" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb3_x1" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb3_dx1" step="0.01" inputmode="decimal"></td></tr>
+                    <tr><td>2</td><td>1</td><td><input type="number" id="glbb3_v2" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb3_dv2" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb3_a2" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb3_x2" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb3_dx2" step="0.01" inputmode="decimal"></td></tr>
+                    <tr><td>3</td><td>1</td><td><input type="number" id="glbb3_v3" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb3_dv3" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb3_a3" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb3_x3" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb3_dx3" step="0.01" inputmode="decimal"></td></tr>
+                    <tr><td>4</td><td>1</td><td><input type="number" id="glbb3_v4" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb3_dv4" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb3_a4" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb3_x4" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb3_dx4" step="0.01" inputmode="decimal"></td></tr>
+                    <tr><td>5</td><td>1</td><td><input type="number" id="glbb3_v5" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb3_dv5" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb3_a5" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb3_x5" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb3_dx5" step="0.01" inputmode="decimal"></td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-outline btn-sm" onclick="resetGLBB3()">🔄 Reset Tabel 3</button>
+        </div>
+
+        <p style="font-size:0.9rem; color:var(--text-soft); margin-top:14px;"><strong>B. Gerak Diperlambat:</strong> Atur $x_0 = -8$ m, $v_0 = 4$ m/s, dan $a = -1$ m/s². Catat pada Tabel 4.</p>
+
+        <div class="subtitle">Tabel 4. Data GLBB Diperlambat ($x_0 = -8$, $v_0 = 4$, $a = -1$ m/s²)</div>
+        <div class="info-diisi">
+            <label>✍️ Diisi oleh:</label>
+            <input type="text" id="diisiGLBB4" placeholder="Nama anggota yang input tabel ini">
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>t (s)</th><th>v terukur (m/s)</th><th>x terukur (m)</th><th>Δx (m)</th></tr></thead>
+                <tbody>
+                    <tr><td>0</td><td>4</td><td>-8</td><td>-</td></tr>
+                    <tr><td>1</td><td><input type="number" id="glbb4_v1" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb4_x1" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb4_dx1" step="0.01" inputmode="decimal"></td></tr>
+                    <tr><td>2</td><td><input type="number" id="glbb4_v2" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb4_x2" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb4_dx2" step="0.01" inputmode="decimal"></td></tr>
+                    <tr><td>3</td><td><input type="number" id="glbb4_v3" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb4_x3" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb4_dx3" step="0.01" inputmode="decimal"></td></tr>
+                    <tr><td>4</td><td><input type="number" id="glbb4_v4" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb4_x4" step="0.01" inputmode="decimal"></td><td><input type="number" id="glbb4_dx4" step="0.01" inputmode="decimal"></td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-outline btn-sm" onclick="resetGLBB4()">🔄 Reset Tabel 4</button>
+        </div>
+
+        <div class="subtitle">G2. Analisis Data GLBB</div>
+        <div class="pertanyaan">
+            <div class="pertanyaan-label"><span class="pertanyaan-num">1</span><span>Bagaimana perubahan kecepatan (Δv) setiap 1 sekon pada Tabel 3? Berapa nilai percepatan yang kamu hitung?</span></div>
+            <div class="jawaban-box"><textarea id="analisisGLBB1" placeholder="Tulis jawaban di sini..." rows="3"></textarea></div>
+        </div>
+        <div class="pertanyaan">
+            <div class="pertanyaan-label"><span class="pertanyaan-num">2</span><span>Bandingkan pertambahan posisi (Δx) tiap sekon pada GLBB dipercepat. Mengapa Δx semakin besar?</span></div>
+            <div class="jawaban-box"><textarea id="analisisGLBB2" placeholder="Tulis jawaban di sini..." rows="3"></textarea></div>
+        </div>
+        <div class="pertanyaan">
+            <div class="pertanyaan-label"><span class="pertanyaan-num">3</span><span>Pada Tabel 4, detik ke berapa benda berhenti? Mengapa percepatannya bernilai negatif?</span></div>
+            <div class="jawaban-box"><textarea id="analisisGLBB3" placeholder="Tulis jawaban di sini..." rows="3"></textarea></div>
+        </div>
+
+        <div class="subtitle">📈 Grafik GLBB (Gambar Manual, Upload Foto)</div>
+        <div class="info-box blue">
+            <strong>Instruksi:</strong> Gambarlah grafik <strong>kecepatan-waktu (v-t)</strong> dan <strong>percepatan-waktu (a-t)</strong> dari data Tabel 3 & 4 pada kertas berpetak. Setelah selesai, foto dan upload.
+        </div>
+        <div class="upload-area" id="uploadAreaGLBB" onclick="document.getElementById('uploadGLBB').click()">
+            <span class="upload-icon">📷</span>
+            <div class="upload-title">Upload Foto Grafik GLBB</div>
+            <div class="upload-hint">Klik di sini untuk memilih foto, atau seret & lepas foto ke area ini</div>
+            <label for="uploadGLBB" class="upload-label" onclick="event.stopPropagation()">📁 Pilih Foto dari Galeri</label>
+            <input type="file" id="uploadGLBB" accept="image/*" onchange="previewImage(this, 'previewGLBB', 'fotoGLBB')">
+        </div>
+        <div class="preview-container" id="previewGLBB">
+            <img id="imgPreviewGLBB" src="" alt="Preview Grafik GLBB">
+            <div class="preview-actions">
+                <button class="btn btn-danger btn-sm" onclick="hapusFoto('previewGLBB', 'uploadGLBB', 'fotoGLBB')">🗑️ Hapus Foto</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SINTESIS -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-icon success">🔍</div>
+            <div>
+                <div class="card-title">H. Sintaks 4: EXPLAIN & SINTESIS</div>
+                <div class="card-subtitle">Diskusi silang antar-kelompok Ganjil & Genap</div>
+            </div>
+        </div>
+
+        <div class="subtitle">Tabel Komparasi Karakteristik GLB dan GLBB</div>
+        <p style="font-size:0.85rem; color:var(--text-soft); margin-bottom:10px;">🎯 Pilih jawaban yang paling tepat dari dropdown di setiap kolom.</p>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:22%;">Indikator</th>
+                        <th>GLB</th>
+                        <th>GLBB</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Δx tiap sekon</strong></td>
+                        <td>
+                            <select id="komp_dx_glb" class="select-komp">
+                                <option value="">-- Pilih --</option>
+                                <option value="tetap">tetap / sama</option>
+                                <option value="makin besar">makin besar</option>
+                                <option value="makin kecil">makin kecil</option>
+                                <option value="nol">nol</option>
+                                <option value="berubah tidak teratur">berubah tidak teratur</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="komp_dx_glbb" class="select-komp">
+                                <option value="">-- Pilih --</option>
+                                <option value="tetap">tetap / sama</option>
+                                <option value="makin besar">makin besar</option>
+                                <option value="makin kecil">makin kecil</option>
+                                <option value="nol">nol</option>
+                                <option value="berubah tidak teratur">berubah tidak teratur</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sifat Kecepatan (v)</strong></td>
+                        <td>
+                            <select id="komp_v_glb" class="select-komp">
+                                <option value="">-- Pilih --</option>
+                                <option value="tetap">tetap / konstan</option>
+                                <option value="berubah teratur">berubah secara teratur</option>
+                                <option value="berubah tidak teratur">berubah tidak teratur</option>
+                                <option value="nol">selalu nol</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="komp_v_glbb" class="select-komp">
+                                <option value="">-- Pilih --</option>
+                                <option value="tetap">tetap / konstan</option>
+                                <option value="berubah teratur">berubah secara teratur</option>
+                                <option value="berubah tidak teratur">berubah tidak teratur</option>
+                                <option value="nol">selalu nol</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sifat Percepatan (a)</strong></td>
+                        <td>
+                            <select id="komp_a_glb" class="select-komp">
+                                <option value="">-- Pilih --</option>
+                                <option value="nol">nol</option>
+                                <option value="konstan">konstan (tetap ≠ 0)</option>
+                                <option value="berubah">berubah-ubah</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="komp_a_glbb" class="select-komp">
+                                <option value="">-- Pilih --</option>
+                                <option value="nol">nol</option>
+                                <option value="konstan">konstan (tetap ≠ 0)</option>
+                                <option value="berubah">berubah-ubah</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Grafik x–t</strong></td>
+                        <td>
+                            <select id="komp_grafikx_glb" class="select-komp">
+                                <option value="">-- Pilih --</option>
+                                <option value="lurus miring">garis lurus miring</option>
+                                <option value="horizontal">garis horizontal</option>
+                                <option value="parabola">kurva parabola</option>
+                                <option value="miring curam">garis miring makin curam</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="komp_grafikx_glbb" class="select-komp">
+                                <option value="">-- Pilih --</option>
+                                <option value="lurus miring">garis lurus miring</option>
+                                <option value="horizontal">garis horizontal</option>
+                                <option value="parabola">kurva parabola</option>
+                                <option value="miring curam">garis miring makin curam</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Grafik v–t</strong></td>
+                        <td>
+                            <select id="komp_grafikv_glb" class="select-komp">
+                                <option value="">-- Pilih --</option>
+                                <option value="horizontal">garis horizontal</option>
+                                <option value="lurus miring">garis lurus miring</option>
+                                <option value="parabola">kurva parabola</option>
+                                <option value="miring curam">garis miring makin curam</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="komp_grafikv_glbb" class="select-komp">
+                                <option value="">-- Pilih --</option>
+                                <option value="horizontal">garis horizontal</option>
+                                <option value="lurus miring">garis lurus miring</option>
+                                <option value="parabola">kurva parabola</option>
+                                <option value="miring curam">garis miring makin curam</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Grafik a–t</strong></td>
+                        <td>
+                            <select id="komp_grafika_glb" class="select-komp">
+                                <option value="">-- Pilih --</option>
+                                <option value="horizontal nol">horizontal di angka 0</option>
+                                <option value="horizontal a">horizontal di angka a (≠ 0)</option>
+                                <option value="miring">garis miring</option>
+                                <option value="parabola">kurva parabola</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="komp_grafika_glbb" class="select-komp">
+                                <option value="">-- Pilih --</option>
+                                <option value="horizontal nol">horizontal di angka 0</option>
+                                <option value="horizontal a">horizontal di angka a (≠ 0)</option>
+                                <option value="miring">garis miring</option>
+                                <option value="parabola">kurva parabola</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contoh Nyata</strong></td>
+                        <td>
+                            <select id="komp_contoh_glb" class="select-komp">
+                                <option value="">-- Pilih --</option>
+                                <option value="eskalator">eskalator / kereta melaju stabil</option>
+                                <option value="mobil dipercepat">mobil mulai dari lampu merah</option>
+                                <option value="sepeda direm">sepeda direm hingga berhenti</option>
+                                <option value="buah jatuh">buah jatuh bebas</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="komp_contoh_glbb" class="select-komp">
+                                <option value="">-- Pilih --</option>
+                                <option value="eskalator">eskalator / kereta melaju stabil</option>
+                                <option value="mobil dipercepat">mobil mulai dari lampu merah</option>
+                                <option value="sepeda direm">sepeda direm hingga berhenti</option>
+                                <option value="buah jatuh">buah jatuh bebas</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="subtitle">Kesimpulan Akhir</div>
+        <div class="pertanyaan" style="border-left-color: var(--success);">
+            <div class="pertanyaan-label" style="font-weight:600;">
+                <span class="pertanyaan-num" style="background:var(--success);">1</span>
+                <span>Pada GLB, kecepatan benda
+                    <select id="simpulan1a" style="width:auto; display:inline-block; padding:6px 28px 6px 10px; min-width:110px;">
+                        <option value="">-- pilih --</option>
+                        <option value="tetap">tetap</option>
+                        <option value="berubah">berubah</option>
+                    </select>
+                    dan percepatannya bernilai
+                    <select id="simpulan1b" style="width:auto; display:inline-block; padding:6px 28px 6px 10px; min-width:110px;">
+                        <option value="">-- pilih --</option>
+                        <option value="nol">nol</option>
+                        <option value="konstan">konstan</option>
+                    </select>.
+                </span>
+            </div>
+        </div>
+        <div class="pertanyaan" style="border-left-color: var(--success);">
+            <div class="pertanyaan-label" style="font-weight:600;">
+                <span class="pertanyaan-num" style="background:var(--success);">2</span>
+                <span>Pada GLBB, percepatan benda bernilai
+                    <select id="simpulan2a" style="width:auto; display:inline-block; padding:6px 28px 6px 10px; min-width:110px;">
+                        <option value="">-- pilih --</option>
+                        <option value="konstan">konstan</option>
+                        <option value="nol">nol</option>
+                    </select>
+                    sehingga kecepatannya
+                    <select id="simpulan2b" style="width:auto; display:inline-block; padding:6px 28px 6px 10px; min-width:170px;">
+                        <option value="">-- pilih --</option>
+                        <option value="berubah secara teratur">berubah secara teratur</option>
+                        <option value="tetap">tetap</option>
+                    </select>.
+                </span>
+            </div>
+        </div>
+        <div class="pertanyaan" style="border-left-color: var(--success);">
+            <div class="pertanyaan-label" style="font-weight:600;">
+                <span class="pertanyaan-num" style="background:var(--success);">3</span>
+                <span>Percepatan negatif pada GLBB menandakan bahwa benda mengalami
+                    <select id="simpulan3" style="width:auto; display:inline-block; padding:6px 28px 6px 10px; min-width:130px;">
+                        <option value="">-- pilih --</option>
+                        <option value="perlambatan">perlambatan</option>
+                        <option value="percepatan">percepatan</option>
+                    </select>.
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- REFLEKSI -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-icon accent">🪞</div>
+            <div>
+                <div class="card-title">I. Refleksi & Evaluasi Data</div>
+                <div class="card-subtitle">Renungkan pengalaman belajarmu</div>
+            </div>
+        </div>
+        <div class="pertanyaan">
+            <div class="pertanyaan-label"><span class="pertanyaan-num">1</span><span>Apakah terdapat perbedaan antara hasil hitungan data praktikum simulasi dengan formula teoretis? Jika ya, apa faktor penyebabnya?</span></div>
+            <div class="jawaban-box"><textarea id="refleksi1" placeholder="Tulis jawaban di sini..." rows="3"></textarea></div>
+        </div>
+        <div class="pertanyaan">
+            <div class="pertanyaan-label"><span class="pertanyaan-num">2</span><span>Apakah dugaan/hipotesis awal kelompokmu pada Sintaks 2 terbukti benar setelah melakukan eksplorasi? Jelaskan alasannya!</span></div>
+            <div class="jawaban-box"><textarea id="refleksi2" placeholder="Tulis jawaban di sini..." rows="3"></textarea></div>
+        </div>
+    </div>
+
+    <!-- KIRIM -->
+    <div class="send-box">
+        <div class="send-box-title">📤 Kirim Jawaban ke Guru</div>
+        <p>Setelah semua terisi, kirim ringkasan jawabanmu melalui WhatsApp atau Email. Pastikan guru sudah menerima konfirmasi.</p>
+        <div class="btn-group" style="margin:0;">
+            <button class="btn btn-wa" onclick="kirimWhatsApp()">💬 Kirim via WhatsApp</button>
+            <button class="btn btn-email" onclick="kirimEmail()">📧 Kirim via Email</button>
+        </div>
+    </div>
+
+</div>
+
+<div class="autosave-pill" id="autosavePill">✅ Tersimpan otomatis</div>
+
+<div class="action-bar">
+    <button class="btn btn-success btn-sm" onclick="simpanData()">💾 <span class="btn-label">Simpan</span></button>
+    <button class="btn btn-primary btn-sm" onclick="muatData()">📂 <span class="btn-label">Muat</span></button>
+    <button class="btn btn-danger btn-sm" onclick="hapusData()">🗑️ <span class="btn-label">Hapus</span></button>
+    <button class="btn btn-accent btn-sm" onclick="window.print()">🖨️ <span class="btn-label">Cetak PDF</span></button>
+</div>
+
+<script>
+    let jenisKelompok = '';
+
+    function pilihKelompok(jenis) {
+        jenisKelompok = jenis;
+        document.getElementById('jenisKelompokDisplay').value = jenis === 'genap' ? 'GENAP (GLB)' : 'GANJIL (GLBB)';
+        document.getElementById('sectionGLB').classList.add('hidden');
+        document.getElementById('sectionGLBB').classList.add('hidden');
+        if (jenis === 'genap') document.getElementById('sectionGLB').classList.remove('hidden');
+        else if (jenis === 'ganjil') document.getElementById('sectionGLBB').classList.remove('hidden');
+        localStorage.setItem('eLKPD_jenisKelompok_v7', jenis);
+        document.getElementById('groupOverlay').classList.add('hidden');
+        updateProgress();
+        autoSave();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function konfirmasiGantiKelompok() {
+        const adaJawaban = cekAdaJawaban();
+        let pesan = '🔄 Yakin ingin mengganti jenis kelompok?';
+        if (adaJawaban) {
+            pesan = '⚠️ PERHATIAN!\n\n' +
+                    'Kamu sudah mengisi beberapa jawaban pada bagian eksplorasi.\n\n' +
+                    'Jika ganti kelompok:\n' +
+                    '• Jawaban bagian lama akan DISEMBUNYIKAN\n' +
+                    '• Jawaban TETAP TERSIMPAN (tidak hilang)\n' +
+                    '• Kamu bisa mengisi bagian eksplorasi baru\n' +
+                    '• Bisa balik lagi ke kelompok lama kapan saja\n\n' +
+                    'Yakin ingin mengganti jenis kelompok?';
+        }
+        if (confirm(pesan)) {
+            gantiKelompok();
+        }
+    }
+
+    function cekAdaJawaban() {
+        const textareas = document.querySelectorAll('#sectionGLB textarea, #sectionGLBB textarea');
+        for (let ta of textareas) {
+            if (ta.value && ta.value.trim() !== '') return true;
+        }
+        const inputs = document.querySelectorAll('#sectionGLB input, #sectionGLBB input');
+        for (let inp of inputs) {
+            if (inp.value && inp.value.trim() !== '' && inp.type !== 'file') return true;
+        }
+        return false;
+    }
+
+    function gantiKelompok() {
+        document.getElementById('sectionGLB').classList.add('hidden');
+        document.getElementById('sectionGLBB').classList.add('hidden');
+        jenisKelompok = '';
+        document.getElementById('jenisKelompokDisplay').value = '';
+        document.getElementById('groupOverlay').classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        autoSave();
+    }
+
+    function resetGLB1() {
+        for (let i = 1; i <= 5; i++) {
+            document.getElementById(`glb1_x${i}`).value = '';
+            document.getElementById(`glb1_dx${i}`).value = '';
+            document.getElementById(`glb1_v${i}`).value = '';
+        }
+        autoSave();
+    }
+    function resetGLB2() {
+        for (let i = 1; i <= 3; i++) {
+            document.getElementById(`glb2_x${i}`).value = '';
+            document.getElementById(`glb2_dx${i}`).value = '';
+            document.getElementById(`glb2_vhit${i}`).value = '';
+        }
+        autoSave();
+    }
+    function resetGLBB3() {
+        for (let i = 1; i <= 5; i++) {
+            document.getElementById(`glbb3_v${i}`).value = '';
+            document.getElementById(`glbb3_dv${i}`).value = '';
+            document.getElementById(`glbb3_a${i}`).value = '';
+            document.getElementById(`glbb3_x${i}`).value = '';
+            document.getElementById(`glbb3_dx${i}`).value = '';
+        }
+        autoSave();
+    }
+    function resetGLBB4() {
+        for (let i = 1; i <= 4; i++) {
+            document.getElementById(`glbb4_v${i}`).value = '';
+            document.getElementById(`glbb4_x${i}`).value = '';
+            document.getElementById(`glbb4_dx${i}`).value = '';
+        }
+        autoSave();
+    }
+
+    function previewImage(input, previewId, storageKey) {
+        if (input.files && input.files[0]) {
+            const file = input.files[0];
+            if (file.size > 3 * 1024 * 1024) {
+                alert('⚠️ Ukuran foto terlalu besar (max 3MB). Silakan kompres terlebih dahulu.');
+                input.value = '';
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const preview = document.getElementById(previewId);
+                const img = preview.querySelector('img');
+                img.src = e.target.result;
+                preview.style.display = 'block';
+                try {
+                    localStorage.setItem(storageKey, e.target.result);
+                } catch (err) {
+                    console.warn('Gagal simpan foto:', err);
+                }
+                autoSave();
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
+    function hapusFoto(previewId, inputId, storageKey) {
+        if (!confirm('Hapus foto ini?')) return;
+        document.getElementById(previewId).style.display = 'none';
+        document.getElementById(inputId).value = '';
+        localStorage.removeItem(storageKey);
+        autoSave();
+    }
+
+    ['uploadAreaGLB', 'uploadAreaGLBB'].forEach(id => {
+        const area = document.getElementById(id);
+        if (!area) return;
+        ['dragenter', 'dragover'].forEach(evt => {
+            area.addEventListener(evt, e => { e.preventDefault(); area.classList.add('dragover'); });
+        });
+        ['dragleave', 'drop'].forEach(evt => {
+            area.addEventListener(evt, e => { e.preventDefault(); area.classList.remove('dragover'); });
+        });
+        area.addEventListener('drop', e => {
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                const input = area.querySelector('input[type="file"]');
+                input.files = files;
+                input.dispatchEvent(new Event('change'));
+            }
+        });
+    });
+
+    function autoSave() {
+        const data = {};
+        document.querySelectorAll('input, textarea, select').forEach(el => {
+            if (el.id && el.type !== 'file') data[el.id] = el.value;
+        });
+        data['jenisKelompok'] = jenisKelompok;
+        const fotoGLB = localStorage.getItem('fotoGLB');
+        if (fotoGLB) data['fotoGLB'] = fotoGLB;
+        const fotoGLBB = localStorage.getItem('fotoGLBB');
+        if (fotoGLBB) data['fotoGLBB'] = fotoGLBB;
+        try {
+            localStorage.setItem('eLKPD_kinematika_v7', JSON.stringify(data));
+        } catch (err) { console.warn('Auto-save gagal:', err); }
+        showAutosavePill();
+        updateProgress();
+    }
+
+    let autosaveTimer;
+    function showAutosavePill() {
+        const pill = document.getElementById('autosavePill');
+        pill.classList.add('show');
+        clearTimeout(autosaveTimer);
+        autosaveTimer = setTimeout(() => pill.classList.remove('show'), 1500);
+    }
+
+    document.addEventListener('input', e => {
+        if (e.target.matches('input, textarea, select') && e.target.type !== 'file') autoSave();
+    });
+    document.addEventListener('change', e => {
+        if (e.target.matches('input, textarea, select') && e.target.type !== 'file') autoSave();
+    });
+
+    function updateProgress() {
+        const allFields = document.querySelectorAll('input[type="text"], input[type="number"], input[type="date"], textarea, select');
+        let filled = 0, total = 0;
+        allFields.forEach(el => {
+            if (el.readOnly || el.disabled) return;
+            total++;
+            if (el.value && el.value.trim() !== '') filled++;
+        });
+        const pct = total > 0 ? Math.round((filled / total) * 100) : 0;
+        document.getElementById('progressFill').style.width = pct + '%';
+        document.getElementById('progressText').textContent = pct + '%';
+    }
+
+    function simpanData() {
+        autoSave();
+        alert('✅ Jawaban berhasil disimpan!');
+    }
+
+    function muatData() {
+        const saved = localStorage.getItem('eLKPD_kinematika_v7');
+        if (!saved) { alert('❌ Tidak ada data tersimpan.'); return; }
+        const data = JSON.parse(saved);
+        Object.keys(data).forEach(key => {
+            if (key === 'jenisKelompok') {
+                if (data[key] && !jenisKelompok) pilihKelompok(data[key]);
+                return;
+            }
+            if (key === 'fotoGLB' || key === 'fotoGLBB') {
+                const previewId = key === 'fotoGLB' ? 'previewGLB' : 'previewGLBB';
+                const preview = document.getElementById(previewId);
+                if (preview && data[key]) {
+                    preview.querySelector('img').src = data[key];
+                    preview.style.display = 'block';
+                }
+                return;
+            }
+            const el = document.getElementById(key);
+            if (el) el.value = data[key];
+        });
+        updateProgress();
+    }
+
+    function hapusData() {
+        if (confirm('⚠️ Yakin ingin menghapus SEMUA jawaban? Tindakan ini tidak dapat dibatalkan.')) {
+            ['eLKPD_kinematika_v7', 'eLKPD_jenisKelompok_v7', 'fotoGLB', 'fotoGLBB'].forEach(k => localStorage.removeItem(k));
+            alert('🗑️ Data dihapus. Halaman akan dimuat ulang.');
+            location.reload();
+        }
+    }
+
+    function getRingkasan() {
+        const nama = document.getElementById('namaKelompok').value || '(belum diisi)';
+        const jenis = document.getElementById('jenisKelompokDisplay').value || '(belum dipilih)';
+        const anggota = [
+            document.getElementById('anggota1').value,
+            document.getElementById('anggota2').value,
+            document.getElementById('anggota3').value,
+            document.getElementById('anggota4').value,
+            document.getElementById('anggota5').value,
+            document.getElementById('anggota6').value
+        ].filter(a => a).join(', ');
+
+        let r = `*E-LKPD KINEMATIKA GLB & GLBB*\n`;
+        r += `━━━━━━━━━━━━━━━━━━━━\n`;
+        r += `*Kelompok:* ${nama}\n`;
+        r += `*Jenis:* ${jenis}\n`;
+        r += `*Anggota:* ${anggota || '-'}\n`;
+        r += `━━━━━━━━━━━━━━━━━━━━\n\n`;
+        r += `*C. ENGAGE*\n`;
+        r += `1. ${document.getElementById('jawabanPemantik1').value || '-'}\n`;
+        r += `2. ${document.getElementById('jawabanPemantik2').value || '-'}\n\n`;
+        if (jenisKelompok === 'genap') {
+            r += `*F. EKSPLORASI GLB*\n`;
+            r += `• Tabel 1 diisi oleh: ${document.getElementById('diisiGLB1').value || '-'}\n`;
+            r += `• Tabel 2 diisi oleh: ${document.getElementById('diisiGLB2').value || '-'}\n`;
+            r += `• Analisis 1: ${document.getElementById('analisisGLB1').value || '-'}\n`;
+            r += `• Analisis 2: ${document.getElementById('analisisGLB2').value || '-'}\n`;
+            r += `• Analisis 3: ${document.getElementById('analisisGLB3').value || '-'}\n\n`;
+        } else if (jenisKelompok === 'ganjil') {
+            r += `*G. EKSPLORASI GLBB*\n`;
+            r += `• Tabel 3 diisi oleh: ${document.getElementById('diisiGLBB3').value || '-'}\n`;
+            r += `• Tabel 4 diisi oleh: ${document.getElementById('diisiGLBB4').value || '-'}\n`;
+            r += `• Analisis 1: ${document.getElementById('analisisGLBB1').value || '-'}\n`;
+            r += `• Analisis 2: ${document.getElementById('analisisGLBB2').value || '-'}\n`;
+            r += `• Analisis 3: ${document.getElementById('analisisGLBB3').value || '-'}\n\n`;
+        }
+        r += `*H. KOMPARASI GLB vs GLBB*\n`;
+        r += `• Δx: GLB=${document.getElementById('komp_dx_glb').value || '-'} | GLBB=${document.getElementById('komp_dx_glbb').value || '-'}\n`;
+        r += `• v: GLB=${document.getElementById('komp_v_glb').value || '-'} | GLBB=${document.getElementById('komp_v_glbb').value || '-'}\n`;
+        r += `• a: GLB=${document.getElementById('komp_a_glb').value || '-'} | GLBB=${document.getElementById('komp_a_glbb').value || '-'}\n`;
+        r += `• Grafik x-t: GLB=${document.getElementById('komp_grafikx_glb').value || '-'} | GLBB=${document.getElementById('komp_grafikx_glbb').value || '-'}\n`;
+        r += `• Grafik v-t: GLB=${document.getElementById('komp_grafikv_glb').value || '-'} | GLBB=${document.getElementById('komp_grafikv_glbb').value || '-'}\n`;
+        r += `• Grafik a-t: GLB=${document.getElementById('komp_grafika_glb').value || '-'} | GLBB=${document.getElementById('komp_grafika_glbb').value || '-'}\n`;
+        r += `• Contoh: GLB=${document.getElementById('komp_contoh_glb').value || '-'} | GLBB=${document.getElementById('komp_contoh_glbb').value || '-'}\n\n`;
+        r += `*Kesimpulan Akhir:*\n`;
+        r += `1. GLB: v=${document.getElementById('simpulan1a').value || '-'}, a=${document.getElementById('simpulan1b').value || '-'}\n`;
+        r += `2. GLBB: a=${document.getElementById('simpulan2a').value || '-'}, v=${document.getElementById('simpulan2b').value || '-'}\n`;
+        r += `3. a negatif = ${document.getElementById('simpulan3').value || '-'}\n\n`;
+        r += `*I. REFLEKSI*\n`;
+        r += `1. ${document.getElementById('refleksi1').value || '-'}\n`;
+        r += `2. ${document.getElementById('refleksi2').value || '-'}\n`;
+        return r;
+    }
+
+    function kirimWhatsApp() {
+        const pesan = getRingkasan();
+        const noGuru = prompt('📱 Masukkan nomor WhatsApp guru:\n(format: 628xxxxxxxxxx)', '6281234567890');
+        if (!noGuru) return;
+        window.open(`https://wa.me/${noGuru.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(pesan)}`, '_blank');
+    }
+
+    function kirimEmail() {
+        const pesan = getRingkasan();
+        const emailGuru = prompt('📧 Masukkan alamat email guru:', 'guru@sekolah.sch.id');
+        if (!emailGuru) return;
+        const subject = `E-LKPD Kinematika - ${document.getElementById('namaKelompok').value || 'Kelompok'}`;
+        window.location.href = `mailto:${emailGuru}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(pesan)}`;
+    }
+
+    window.addEventListener('load', function() {
+        const savedJenis = localStorage.getItem('eLKPD_jenisKelompok_v7');
+        if (savedJenis) {
+            pilihKelompok(savedJenis);
+        } else {
+            document.getElementById('groupOverlay').classList.remove('hidden');
+        }
+        const savedData = localStorage.getItem('eLKPD_kinematika_v7');
+        if (savedData && savedJenis) {
+            setTimeout(() => { muatData(); }, 100);
+        }
+        updateProgress();
+    });
+</script>
+
+</body>
+</html>
